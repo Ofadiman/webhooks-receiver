@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  api:
+    command: yarn dev
+    environment:
+      APPLICATION_PORT: '3000'
+      PERSISTANCE_PATH: '/logs'
+      TZ: 'Europe/Warsaw'
+    image: library/node:16.13.0
+    user: node
+    volumes:
+      - .:/api
+    working_dir: /api

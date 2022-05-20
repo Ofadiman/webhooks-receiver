@@ -7,9 +7,9 @@ void (async () => {
   await app.listen(process.env.PORT ?? 3000)
 })()
   .then(() => {
-    console.log(`Application is listening on port ${process.env.PORT}🚀`)
+    console.log(`Application is listening on port ${process.env.PORT} 🚀`)
   })
   .catch((error) => {
-    console.error('An error has occurred while trying to start the server.')
+    console.error('An error has occurred while trying to start the server 💥')
     console.error(error)
   })
