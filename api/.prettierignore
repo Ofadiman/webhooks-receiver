@@ -1,0 +1,19 @@
+# Logs
+lerna-debug.log
+
+# Environment variable files
+.env*
+
+# Build files
+.next
+dist
+
+# JetBrains
+.idea
+
+# Dependencies
+node_modules
+
+# Terraform files
+infrastructure
+!infrastructure/**/*.md
