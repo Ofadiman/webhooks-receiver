@@ -135,3 +135,6 @@ personal
 
 # Data persistence files necessary for local testing
 data
+
+# Terraform files
+.terraform

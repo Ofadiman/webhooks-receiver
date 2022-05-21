@@ -1,0 +1,18 @@
+terraform {
+  cloud {
+    organization = "Ofadiman"
+
+    workspaces {
+      name = "webhooks-receiver"
+    }
+  }
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "4.15.1"
+    }
+  }
+
+  required_version = "1.1.9"
+}
