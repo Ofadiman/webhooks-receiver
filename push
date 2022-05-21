@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+# The ECR URI should have a specific format. A detailed description of the format and image pushing process is available in official AWS documentation (https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html).
+
+ECR_URI="${1}"
+
+aws-vault exec ofadiman -- aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin ${ECR_URI}
+
+docker tag 8f6529f69d3d ${ECR_URI}/webhooks_receiver:latest
+
+docker push ${ECR_URI}/webhooks_receiver:latest
