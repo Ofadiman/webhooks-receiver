@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+docker build --file prod.Dockerfile --tag ofadiman/webhooks-receiver:latest --target production .

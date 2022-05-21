@@ -9,7 +9,7 @@
     "dev": "nest start --watch",
     "test": "jest --watch",
     "prod": "node dist/main",
-    "build": "rimraf dist && nest build",
+    "build": "rimraf dist && ./node_modules/.bin/nest build",
     "format": "prettier --write ."
   },
   "dependencies": {
