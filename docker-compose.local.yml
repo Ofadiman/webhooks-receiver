@@ -10,5 +10,5 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - .:/api
-    working_dir: /api
+      - .:/application
+    working_dir: /application/api
