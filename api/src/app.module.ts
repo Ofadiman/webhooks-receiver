@@ -1,9 +1,16 @@
-import { Module } from '@nestjs/common'
-import { HealthController } from './health/health.controller'
+import { Module, ValidationPipe } from '@nestjs/common'
+import { APP_PIPE } from '@nestjs/core'
+import { HealthModule } from './health/health.module'
+import { AggregatesModule } from './aggregates/aggregates.module'
+import { DatabaseModule } from './database/database.module'
 
 @Module({
-  imports: [],
-  controllers: [HealthController],
-  providers: [],
+  imports: [HealthModule, AggregatesModule, DatabaseModule],
+  providers: [
+    {
+      provide: APP_PIPE,
+      useClass: ValidationPipe,
+    },
+  ],
 })
 export class AppModule {}

@@ -3,11 +3,12 @@ services:
   api:
     command: yarn dev
     environment:
-      APPLICATION_PORT: '3000'
-      PERSISTANCE_PATH: '/logs'
+      APPLICATION_PORT: 3000
       TZ: 'Europe/Warsaw'
     image: library/node:16.13.0
     user: node
+    ports:
+      - '3000:3000'
     volumes:
       - .:/api
     working_dir: /api
