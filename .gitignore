@@ -138,3 +138,6 @@ data
 
 # Terraform files
 .terraform
+
+# SSH keys
+ssh-keys
