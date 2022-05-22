@@ -35,6 +35,14 @@ resource "aws_eip" "webhooks_receiver_host_static_ip" {
   vpc      = true
 }
 
+resource "aws_route53_record" "webhooks_receiver_host_dns_record" {
+  name    = "webhooks-receiver.ofadiman.com"
+  records = [aws_eip.webhooks_receiver_host_static_ip.public_ip]
+  ttl     = "300"
+  type    = "A"
+  zone_id = data.aws_route53_zone.ofadiman_route53_hosted_zone.zone_id
+}
+
 resource "aws_instance" "webhooks_receiver_host" {
   ami                         = "ami-0c1bc246476a5572b"
   associate_public_ip_address = true
