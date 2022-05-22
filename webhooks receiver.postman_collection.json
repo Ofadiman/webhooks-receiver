@@ -1,0 +1,180 @@
+{
+	"info": {
+		"_postman_id": "9e44557d-0a53-42a4-94d8-6313057e895c",
+		"name": "webhooks receiver",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "health",
+			"item": [
+				{
+					"name": "Check if application is running",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ec2-3-249-93-217.eu-west-1.compute.amazonaws.com:3000/health",
+							"protocol": "http",
+							"host": [
+								"ec2-3-249-93-217",
+								"eu-west-1",
+								"compute",
+								"amazonaws",
+								"com"
+							],
+							"port": "3000",
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "aggregate",
+			"item": [
+				{
+					"name": "Create aggregate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Quality assurence test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://ec2-3-249-93-217.eu-west-1.compute.amazonaws.com:3000/aggregates",
+							"protocol": "http",
+							"host": [
+								"ec2-3-249-93-217",
+								"eu-west-1",
+								"compute",
+								"amazonaws",
+								"com"
+							],
+							"port": "3000",
+							"path": [
+								"aggregates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get aggregate by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ec2-3-249-93-217.eu-west-1.compute.amazonaws.com:3000/aggregates/:aggregateId",
+							"protocol": "http",
+							"host": [
+								"ec2-3-249-93-217",
+								"eu-west-1",
+								"compute",
+								"amazonaws",
+								"com"
+							],
+							"port": "3000",
+							"path": [
+								"aggregates",
+								":aggregateId"
+							],
+							"variable": [
+								{
+									"key": "aggregateId",
+									"value": "c98b303b-9243-4422-ba76-a58cd6cc19e0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create entry",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"foo\": \"bar\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://ec2-3-249-93-217.eu-west-1.compute.amazonaws.com:3000/aggregates/:aggregateId/entries",
+							"protocol": "http",
+							"host": [
+								"ec2-3-249-93-217",
+								"eu-west-1",
+								"compute",
+								"amazonaws",
+								"com"
+							],
+							"port": "3000",
+							"path": [
+								"aggregates",
+								":aggregateId",
+								"entries"
+							],
+							"variable": [
+								{
+									"key": "aggregateId",
+									"value": "f5c3e78b-16a5-47c6-9b43-17f5a5bc1f9f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read entry by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ec2-3-249-93-217.eu-west-1.compute.amazonaws.com:3000/aggregates/:aggregateId/entries/:entryId",
+							"protocol": "http",
+							"host": [
+								"ec2-3-249-93-217",
+								"eu-west-1",
+								"compute",
+								"amazonaws",
+								"com"
+							],
+							"port": "3000",
+							"path": [
+								"aggregates",
+								":aggregateId",
+								"entries",
+								":entryId"
+							],
+							"variable": [
+								{
+									"key": "aggregateId",
+									"value": "f5c3e78b-16a5-47c6-9b43-17f5a5bc1f9f"
+								},
+								{
+									"key": "entryId",
+									"value": "377c87bc-6c74-4791-9154-99f1ac000874"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
