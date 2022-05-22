@@ -83,6 +83,18 @@ resource "aws_instance" "webhooks_receiver_host" {
     }
   }
 
+  provisioner "file" {
+    destination = "/home/ec2-user/docker-compose.prod.yml"
+    source      = "./../docker-compose.prod.yml"
+
+    connection {
+      host        = self.public_ip
+      private_key = file("./ssh-keys/${aws_key_pair.webhooks_receiver_key_pair.key_name}")
+      type        = "ssh"
+      user        = "ec2-user"
+    }
+  }
+
   provisioner "remote-exec" {
     inline = ["chmod 400 ~/${aws_key_pair.webhooks_receiver_key_pair.key_name}.pub"]
 
