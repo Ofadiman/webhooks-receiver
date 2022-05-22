@@ -29,6 +29,12 @@ resource "aws_iam_instance_profile" "webhooks_receiver_instance_profile" {
   role = aws_iam_role.webhooks_receiver_role.name
 }
 
+resource "aws_eip" "webhooks_receiver_host_static_ip" {
+  instance = aws_instance.webhooks_receiver_host.id
+  tags     = {}
+  vpc      = true
+}
+
 resource "aws_instance" "webhooks_receiver_host" {
   ami                         = "ami-0c1bc246476a5572b"
   associate_public_ip_address = true
