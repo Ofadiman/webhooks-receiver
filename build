@@ -2,6 +2,6 @@
 
 NOW=$(date +%s)
 
-docker build --file prod.Dockerfile --tag ofadiman/webhooks-receiver:${NOW} --target production .
+docker build --file prod.Dockerfile --tag ofadiman/webhooks-receiver:${NOW} --tag ofadiman/webhooks-receiver:latest --target production .
 
 echo "Successfully build production image. Tag: ${NOW}"

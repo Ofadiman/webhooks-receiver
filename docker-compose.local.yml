@@ -4,6 +4,7 @@ services:
     command: yarn dev
     environment:
       APPLICATION_PORT: 3000
+      NODE_ENV: local
       TZ: 'Europe/Warsaw'
     image: library/node:16.13.0
     user: node
