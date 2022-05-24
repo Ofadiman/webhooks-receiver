@@ -16,6 +16,20 @@ resource "aws_security_group" "webhooks_receiver_security_group" {
     to_port     = 3000
   }
 
+  ingress {
+    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 0
+    protocol    = "tcp"
+    to_port     = 443
+  }
+
+  ingress {
+    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 0
+    protocol    = "tcp"
+    to_port     = 80
+  }
+
   egress {
     cidr_blocks = ["0.0.0.0/0"]
     from_port   = 0
